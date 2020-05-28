@@ -14,7 +14,6 @@ This project runs on **NodeJs**. The code structure is fairly easy to adopt to b
 ## Features
 
 -   Basic secret verification in the requst header.
--   JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` will be returned in Login response.
 -   Pre-defined response structures with proper status codes.
 -   Validations added.
 -   Test cases with [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/).
