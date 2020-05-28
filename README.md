@@ -104,7 +104,8 @@ This porject is built with a specific example in mind. In short, given an `origi
 
 To test the 'POST' api to get a winner :
 
-Request `http://localhost:3000/api/path` with `POST` and in a `x-secret` in the header of the request.
+Request `http://localhost:3000/api/path` with `POST` and in a property `x-secret` in the header of the request.
+**Note:** the valid secret is configured in the `.env` file as `JWT_SECRET`. This is mix-up at the moment. Ideally `JWT` can be used when proper authentication is in place. The secret that need to be mathced with that in the `request header` could be fetched from a remote database.
 
 The following is an example `data` to be sent in a POST request. 
 ```
@@ -154,7 +155,8 @@ The output should look like :
 }
 ```
 
-### Postman example
+### Postman example 
+(header : 'x-secret' : '<check .env file>')
 ![Alt text](git_resources/postmanexample.png?raw=true "Postman example")
 ### Creating new models
 
