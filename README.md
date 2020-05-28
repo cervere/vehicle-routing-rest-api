@@ -97,7 +97,65 @@ App is running ...
 Press CTRL + C to stop the process.
 ```
  
+### Example
+The server should be up and running. Test `http://localhost:3000/`, you should see a simple home page.
 
+This porject is built with a specific example in mind. In short, given an `origin`, `destination` and `n waypoints` implying `n` possible routes between `origin` and `destination`, and assuming there is a car on each of these routes : the `POST` request to the API should return the `winner` car which is the closest to `destination` after `time` seconds after all cars started at `origin`.
+
+To test the 'POST' api to get a winner :
+
+Request `http://localhost:3000/api/path` with `POST` and in a `x-secret` in the header of the request.
+
+The following is an example `data` to be sent in a POST request. 
+```
+{
+    "origin": {
+        "lat": 50.023226,
+        "lon": 14.439855
+    },
+    "destination": {
+        "lat": 50.121765629793295,
+        "lon": 14.489431312606477
+    },
+    "time": 180,
+    "waypoints": [
+        {
+        "name": "Point A",
+        "lat": 50.058010,
+        "lon": 14.406775
+        },
+        {
+        "name": "Point B",
+        "lat": 50.060757,
+        "lon": 14.431909
+        },
+        {
+        "name": "Point C",
+        "lat": 50.078847,
+        "lon": 14.538084
+        }
+    ]
+}
+```
+
+The output should look like :
+```
+{
+    "status": 1,
+    "message": "PathGeneration Successful.",
+    "data": {
+        "winnerName": "Point B",
+        "delays": {
+            "Point A": 205.30000000000004,
+            "Point B": 0,
+            "Point C": 178.80000000000007
+        }
+    }
+}
+```
+
+### Postman example
+![Alt text](git_resources/postmanexample.png?raw=true "Postman example")
 ### Creating new models
 
 If you need to add more models to the project just create a new file in `/models/` and use them in the controllers.
