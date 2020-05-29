@@ -65,7 +65,6 @@ npm install
 ├── routes
 │   ├── api.js
 │   ├── auth.js
-│   └── book.js
 ├── middlewares
 │   ├── jwt.js
 ├── helpers
